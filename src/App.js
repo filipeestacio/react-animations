@@ -1,16 +1,23 @@
 import React from 'react';
+import { useSpring, animated } from 'react-spring';
+import { Toggle } from './Toggle';
 import logo from './dwc-logo-flat.svg';
 import './App.css';
 
-function App() {
+const App = () => {
+  const fade = useSpring({ from: { opacity: 0 }, opacity: 1 });
+
   return (
-    <div className="App">
+    <animated.div className="App" style={fade}>
       <header className="App-header">
         <img src={logo} className="logo" alt="Digital Water Consulting logo" />
         <button className="menu-button">Menu</button>
       </header>
-    </div>
+      <main>
+        <Toggle />
+      </main>
+    </animated.div>
   );
-}
+};
 
 export default App;
